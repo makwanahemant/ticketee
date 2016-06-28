@@ -1,6 +1,14 @@
-
+<% title(@project.name, "Projects") %>
 <div id="notice"><% notice %></div>
 <h2> Project Detail</h2>
 <p>
   <strong>Name: </strong> <%= @project.name %>
  </p> 
+ <p>
+  <strong>Description: </strong> <%= @project.description %>
+ </p>
+
+ <%= link_to "Back", projects_path %> |
+ <%= link_to "Edit", project_path(@project) %>
+
+
