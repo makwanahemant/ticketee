@@ -5,7 +5,13 @@
 
   <div class="page-header">
     <h2><%= @ticket.name %></h2>
-  </div>
+    <ul class="actions">
+      <li>
+        <%= link_to "Edit Ticket", edit_project_ticket_path([@project, @ticket]), class: 'edit' %>
+      <!-- another style is [:edit, @project, @ticket] for edit path -->
+      </li>
+     </ul>
+   </div>
 
   <%= simple_format(@ticket.description) %>
 </div>
