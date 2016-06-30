@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "User can dele existing tickets" do
+RSpec.feature "User can delete existing tickets" do
 
   let(:project) { FactoryGirl.create(:project) }
   let(:ticket) { FactoryGirl.create(:ticket, project: project) }
@@ -13,6 +13,7 @@ RSpec.feature "User can dele existing tickets" do
     click_link "Delete Ticket"
 
     expect(page).to have_content "Ticket has been deleted."
+    expect(page.current_url).to eq project_url(project)
     end
 end
 
