@@ -45,17 +45,14 @@
               </li>
             <% end %>
 
-            <% if user_signed_in? %>
-              <div class="navbar-right">
-                <p class=navbar-text">
-                  Signed in as <%= current_user.email %>
-                </p>
-                <ul class="nav navbar-nav">
-                  <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-                </ul>
-              </div>
-            <% end %>
           </ul>
+
+           <% if user_signed_in? %>
+             <ul class="nav navbar-nav navbar-right">
+                <li>Signed in as <%= current_user.email %></li>
+                <li> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+             </ul>
+           <% end %>
 
         </div>
       </div>
