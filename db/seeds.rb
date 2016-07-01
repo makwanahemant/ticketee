@@ -11,5 +11,5 @@ unless User.exists?(email: "admin@ticketee.com")
 end
 
 unless User.exists?(email: "viewer@ticketee.com")
-  User.create!(email: "viewer@ticketee.com", password: "password")
-end
+  User.create!(email: "viewer@ticketee", password: "password")
+end  
