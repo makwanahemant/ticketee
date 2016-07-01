@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User deleting the projects' do
+
+  before do
+    login_as(FactoryGirl.create(:user, :admin))
+  end
   scenario "when user deleting project" do
     FactoryGirl.create(:project, name: "Sublime Text 3")
 
