@@ -1,9 +1,9 @@
 <div class="page-header">
   <h1> <%= @user %> </h1>
-
   <ul class="actions">
     <li>
-      <%= link_to "Edit User", [:edit, :admin, @user], calss: 'edit' %>
+      <%= link_to "Edit User", [:edit, :admin, @user], class: 'edit' %>
+      <%= link_to "Archive User", [:archive, :admin, @user], method: :patch, data: { confirm: "areyou sure want to archive this user?" }, class: 'delete' %>
     </li>
   </ul>
 </div>
