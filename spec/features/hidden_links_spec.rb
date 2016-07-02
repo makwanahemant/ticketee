@@ -29,6 +29,11 @@ RSpec.feature "User can see only relevent links" do
       expect(page).not_to have_link "New Project"
     end
 
+    scenario 'cannot see the Edit Project link' do
+      visit project_path(project)
+      expect(page).not_to have_link "Edit Project"
+    end
+
     scenario 'cannot see the Delete Project link' do
       visit project_path(project)
 
