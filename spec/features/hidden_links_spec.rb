@@ -5,6 +5,11 @@ RSpec.feature "User can see only relevent links" do
   let(:admin) { FactoryGirl.create(:user, :admin) }
   let(:project) { FactoryGirl.create(:project) }
 
+  before do 
+    login_as(user)
+    assign_role!(user, :viewer, project)
+  end
+
   context "anonymous users" do
     scenario 'cannot see the New Project link' do
       visit '/'
@@ -24,7 +29,7 @@ RSpec.feature "User can see only relevent links" do
       expect(page).not_to have_link "New Project"
     end
 
-    scenario 'canno see the Delete Project link' do
+    scenario 'cannot see the Delete Project link' do
       visit project_path(project)
 
       expect(page).not_to have_link "Delete Project"

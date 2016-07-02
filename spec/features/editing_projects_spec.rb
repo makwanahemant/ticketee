@@ -1,8 +1,16 @@
 require 'rails_helper'
 
 RSpec.feature 'Uesr can edit the existing projects' do
+  let(:user) { FactoryGirl.create(:user) }
+  let(:project) { FactoryGirl.create(:project, name: "Sublime Text 3") }
+
+  before do
+    login_as(user)
+    assign_role!(user, :viewer, project)
+  end
+
   scenario 'with valid attrubute' do
-    FactoryGirl.create(:project, name: 'Sublime Text 3')
+    FactoryGirl.create(:project, name: 'Sublime Text 4')
 
     visit '/'
     
@@ -17,7 +25,7 @@ RSpec.feature 'Uesr can edit the existing projects' do
   end
 
   scenario "when providing invalid attributes" do
-    FactoryGirl.create(:project, name: "Sublime Text 3")
+    FactoryGirl.create(:project, name: "Sublime Text 4")
 
     visit '/'
     click_link "Sublime Text 3"

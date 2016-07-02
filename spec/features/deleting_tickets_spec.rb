@@ -6,7 +6,9 @@ RSpec.feature "User can delete existing tickets" do
   let(:ticket) { FactoryGirl.create(:ticket, project: project, author: author) }
 
   before do
+    login_as(author)
     visit project_ticket_path(project, ticket)
+    assign_role!(author, :viewer, project)
   end
 
   scenario "with valid attributes" do
