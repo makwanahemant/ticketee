@@ -10,12 +10,14 @@
         <li>
           <%= link_to "Edit Ticket", edit_project_ticket_path([@project, @ticket]), class: 'edit' %>
           <!-- another style is [:edit, @project, @ticket] for edit path -->
+        </li>
       <% end %>
-      </li>
-       <li>
-         <%= link_to "Delete Ticket", project_ticket_path([@project, @ticket]), method: :delete, data: { confirm: "are you sure?" }, class: 'delete' %>
-      <!-- another style is [:edit, @project, @ticket] for edit path -->
-      </li>
+      <% if policy(@ticket).destroy? %>
+        <li>
+           <%= link_to "Delete Ticket", project_ticket_path([@project, @ticket]), method: :delete, data: { confirm: "are you sure?" }, class: 'delete' %>
+            <!-- another style is [:edit, @project, @ticket] for edit path -->
+        </li>
+      <% end %>
      </ul>
    </div>
 
