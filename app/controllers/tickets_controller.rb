@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
   end
 
   def edit
+    authorize @ticket, :update?
   end
   
   def create
@@ -30,6 +31,8 @@ class TicketsController < ApplicationController
   end
 
   def update
+    authorize @ticket, :update?
+
     if @ticket.update(ticket_params)
       redirect_to [@project, @ticket], notice: "Ticket has been updated."
     else

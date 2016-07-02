@@ -4,6 +4,9 @@ RSpec.feature "User can see only relevent links" do
   let(:user) { FactoryGirl.create(:user) }
   let(:admin) { FactoryGirl.create(:user, :admin) }
   let(:project) { FactoryGirl.create(:project) }
+  let(:ticket) do
+    FactoryGirl.create(:ticket, project: project, author: user)
+  end
 
   before do 
     login_as(user)
