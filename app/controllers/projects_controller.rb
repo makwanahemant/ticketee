@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    authorize @project, :update?
   end
 
   def create
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    authorize @project, :update?
 
     if @project.update(project_params)
       redirect_to @project, notice: "Project has been updated."
