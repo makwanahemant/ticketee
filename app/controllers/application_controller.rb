@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  protect_from_forgery with: :exception
+  
+#  after_action :verify_authorized, expect: [:index], 
+#    unless: :devise_controller?
+    
+#  after_action :verify_policy_scoped, only: [:index], 
+#    unless: :devise_controller?
 
+  protect_from_forgery with: :exception
 
   rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 

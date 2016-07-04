@@ -6,6 +6,9 @@
   <p>
     <%= f.input :description %>
   </p>
+  <p>
+    <%= f.input :attachment, as: :file, label: "File" %>
+  </p>
 
   <p>
     <%= f.button :submit, class: 'btn-primary' %>

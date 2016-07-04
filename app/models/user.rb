@@ -23,4 +23,7 @@ class User < ApplicationRecord
     archived_at.nil? ? super : :archived
   end
 
+  def role_on(project)
+    Role.find_by(project_id: project).try(:name)
+  end
 end
